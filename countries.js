@@ -200,30 +200,64 @@
       ["Republic of Zimbabwe", "ZI"]
    ];
 
-   function makeCountryDisplay() {
+   function makeTitle(countryContainer) {
       var countryDayHeader = document.createElement("h1"),
-         countryDayText = document.createTextNode("Country of the Day"),
-         country = document.createElement("h2"),
-         countryText = document.createTextNode(countries[number][0]),
-         flagImg = document.createElement("img");
-
+         countryDayText = document.createTextNode("Country of the Day");
       countryDayHeader.appendChild(countryDayText);
+      countryContainer.appendChild(countryDayHeader);
+   };
+
+   function generateCountryName(countryContainer, number) {
+         var country = document.createElement("h2"),
+         countryText = document.createTextNode(countries[number][0]);
+
+      country.appendChild(countryText);
+      countryContainer.appendChild(country);
    }
 
-   function makeHTML(number) {
-      var text = '<tr style="height:50px">';
-      text += '<th>Country of the Day:</th><th colspan="2">';
-      text += countries[number][0]; // name
-      text += '</th></tr>';
-      text += '<tr><td>';
-      text += '<img src="https://www.cia.gov/library/publications/the-world-factbook/graphics/flags/large/' + countries[number][1].toLowerCase() + '-lgflag.gif';
-      text += '" border="0" alt="' + countries[number][0] + ' Flag" style="width:200px;font-size: 19px;" />';
-      text += '<div>Picture Source: <a href="https://www.cia.gov/library/publications/the-world-factbook/">www.cia.gov</a></div>';
-      text += '</td><td><a href="' + encodeURI('http://www.wolframalpha.com/input/?i=usa+vs.+' + countries[number][0]) + '" target="_blank">WolframAlpha</a></td><td>';
-      text += '<a href="' + encodeURI('https://www.cia.gov/library/publications/the-world-factbook/geos/' + countries[number][1].toLowerCase() + '.html') + '" target="_blank">CIA.gov</a></td></tr>';
-      text += '<caption style="caption-side:bottom;text-align:right;cursor:pointer;color:blue;text-decoration:underline;" onclick="getNewCountry();">New Country</caption>';
+   function generateFlag(countryContainer, number) {
+         var flagImg = document.createElement("img");
+            flagImg.src = "https://www.cia.gov/library/publications/the-world-factbook/graphics/flags/large/" + countries[number][1].toLowerCase() + "-lgflag.gif";
+            flagImg.alt = countries[number][0] + " Flag";
+      countryContainer.appendChild(flagImg);
+   }
 
-      return text;
+   function picSrc(countryContainer) {
+         var picSrcPara = document.createElement("p"),
+         picSrcLink = document.createElement("a"),
+         picSrcText = document.createTextNode("Picture Source: "),
+            worldFact = document.createTextNode("World Fact Book");
+      picSrcLink.href = "https://www.cia.gov/library/publications/the-world-factbook/";
+      picSrcLink.appendChild(worldFact);
+      picSrcPara.appendChild(picSrcText);
+      picSrcPara.appendChild(picSrcLink);
+      countryContainer.appendChild(picSrcPara);
+   }
+
+   function makeCountryDisplay(countries, func) {
+      var number = func(),
+         countryContainer = document.createElement("aside"),
+         wolframAlphaPara = document.createElement("p"),
+         wolframAlphaLink = document.createElement("a"),
+         wolframAlphaText = document.createTextNode("WolframAlpha"),
+         ciaPara = document.createElement("p"),
+         ciaLink = document.createElement("a"),
+         ciaText = document.createTextNode("CIA.gov"),
+         newCountry = document.createElement("p"),
+         newCountryText = document.createTextNode("Get a New Country");
+
+      newCountry.appendChild(newCountryText);
+
+      ciaLink.href = 'https://www.cia.gov/library/publications/the-world-factbook/geos/' + countries[number][1].toLowerCase() + '.html';
+
+      wolframAlphaLink.href = "http://www.wolframalpha.com/input/?i=usa+vs.+" + countries[number][0];
+
+      makeTitle(countryContainer);
+      generateCountryName(countryContainer, number);
+      generateFlag(countryContainer, number);
+      picSrc(countryContainer);
+
+      return countryContainer;
    }
 
    function getCountryIndex() {
@@ -235,6 +269,6 @@
       tablePlace.innerHTML = makeHTML(getCountryIndex());
    }
 
-   document.write(makeCountry());
+   document.querySelector("body").appendChild(makeCountryDisplay(countries, getCountryIndex));
 
 }());
