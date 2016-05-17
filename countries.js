@@ -230,7 +230,6 @@
    function getNewCountry() {
       var tablePlace = document.getElementById("flagTable");
       tablePlace.innerHTML = makeHTML(getCountryIndex());
-
    }
 
    document.write(makeCountry());
