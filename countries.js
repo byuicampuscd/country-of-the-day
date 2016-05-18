@@ -200,6 +200,15 @@
       ["Republic of Zimbabwe", "ZI"]
    ];
 
+   function getCountryIndex() {
+      return Math.floor(Math.random() * countries.length);
+   }
+
+   function getNewCountry() {
+      var tablePlace = document.getElementById("flagTable");
+      tablePlace.innerHTML = makeHTML(getCountryIndex());
+   }
+
    function makeTitle(countryContainer) {
       var countryDayHeader = document.createElement("h1"),
          countryDayText = document.createTextNode("Country of the Day");
@@ -228,6 +237,7 @@
          picSrcText = document.createTextNode("Picture Source: "),
          worldFact = document.createTextNode("World Fact Book");
       picSrcLink.href = "https://www.cia.gov/library/publications/the-world-factbook/";
+      picSrcLink.target = "_blank";
       picSrcLink.appendChild(worldFact);
       picSrcPara.appendChild(picSrcText);
       picSrcPara.appendChild(picSrcLink);
@@ -240,6 +250,7 @@
          wolframAlphaText = document.createTextNode("WolframAlpha");
 
       wolframAlphaLink.href = "http://www.wolframalpha.com/input/?i=usa+vs.+" + countries[number][0];
+      wolframAlphaLink.target = "_blank";
 
       wolframAlphaLink.appendChild(wolframAlphaText);
       wolframAlphaPara.appendChild(wolframAlphaLink);
@@ -253,6 +264,7 @@
          ciaText = document.createTextNode("CIA.gov");
 
       ciaLink.href = 'https://www.cia.gov/library/publications/the-world-factbook/geos/' + countries[number][1].toLowerCase() + '.html';
+      ciaLink.target = "_blank";
 
       ciaLink.appendChild(ciaText);
       ciaPara.appendChild(ciaLink);
@@ -267,12 +279,14 @@
       newCountryPara.appendChild(newCountryText);
 
       countryContainer.appendChild(newCountryPara);
+
+      newCountryPara.onclick = function () {
+         countryContainer.innerHTML = "";
+         makeCountryDisplay(countryContainer, getCountryIndex());
+      };
    }
 
-   function makeCountryDisplay(countries, func) {
-      var number = func(),
-         countryContainer = document.createElement("aside");
-
+   function makeCountryDisplay(countryContainer, number) {
       makeTitle(countryContainer);
       generateCountryName(countryContainer, number);
       generateFlag(countryContainer, number);
@@ -280,19 +294,16 @@
       wolfram(countryContainer, number);
       cia(countryContainer, number);
       newCountry(countryContainer);
+   }
+
+   function start (func) {
+      var number = func(),
+         countryContainer = document.createElement("aside");
+      makeCountryDisplay(countryContainer, number);
 
       return countryContainer;
    }
 
-   function getCountryIndex() {
-      return Math.floor(Math.random() * countries.length);
-   }
-
-   function getNewCountry() {
-      var tablePlace = document.getElementById("flagTable");
-      tablePlace.innerHTML = makeHTML(getCountryIndex());
-   }
-
-   document.querySelector("body").appendChild(makeCountryDisplay(countries, getCountryIndex));
+   document.querySelector("body").appendChild(start(getCountryIndex));
 
 }());
