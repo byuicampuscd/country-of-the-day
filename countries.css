@@ -11,6 +11,12 @@ main {
 
 article {
    display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+aside {
+   flex-grow: 0;
 }
 
 aside:nth-of-type(2) {

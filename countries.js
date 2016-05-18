@@ -289,7 +289,13 @@
    function makeCountryDisplay(countryContainer, number) {
       var articleContain = document.createElement("article"),
           container1 = document.createElement("aside"),
-          container2 = document.createElement("aside");
+          container2 = document.createElement("aside"),
+          linkStyle = document.createElement("link");
+
+      linkStyle.href = "countries.css";
+      linkStyle.type = "text/css";
+      linkStyle.rel = "stylesheet";
+      countryContainer.appendChild(linkStyle);
 
       makeTitle(countryContainer);
       generateCountryName(countryContainer, number);
@@ -306,12 +312,7 @@
 
    function start (func) {
       var number = func(),
-         countryContainer = document.createElement("main"),
-          linkStyle = document.createElement("link");
-      linkStyle.href = "countries.css";
-      linkStyle.type = "text/css";
-      linkStyle.rel = "stylesheet";
-      countryContainer.appendChild(linkStyle);
+         countryContainer = document.createElement("main");
 
       makeCountryDisplay(countryContainer, number);
       return countryContainer;
