@@ -204,20 +204,8 @@
       return Math.floor(Math.random() * countries.length);
    }
 
-   function getNewCountry() {
-      var tablePlace = document.getElementById("flagTable");
-      tablePlace.innerHTML = makeHTML(getCountryIndex());
-   }
-
-   function makeTitle(countryContainer) {
-      var countryDayHeader = document.createElement("h1"),
-         countryDayText = document.createTextNode("Country of the Day");
-      countryDayHeader.appendChild(countryDayText);
-      countryContainer.appendChild(countryDayHeader);
-   };
-
    function generateCountryName(countryContainer, number) {
-      var country = document.createElement("h2"),
+      var country = document.createElement("h1"),
          countryText = document.createTextNode(countries[number][0]);
 
       country.appendChild(countryText);
@@ -292,12 +280,11 @@
           container2 = document.createElement("aside"),
           linkStyle = document.createElement("link");
 
-      linkStyle.href = "countries.css";
+      linkStyle.href = "https://content.byui.edu/integ/gen/316e5ad6-51c9-483a-8ca5-dc1e077671fe/0/countries.css";
       linkStyle.type = "text/css";
       linkStyle.rel = "stylesheet";
       countryContainer.appendChild(linkStyle);
 
-      makeTitle(countryContainer);
       generateCountryName(countryContainer, number);
       generateFlag(container1, number);
       picSrc(container1);
@@ -318,6 +305,6 @@
       return countryContainer;
    }
 
-   document.querySelector("body").appendChild(start(getCountryIndex));
+   document.querySelector("#countryDayWidget").appendChild(start(getCountryIndex));
 
 }());

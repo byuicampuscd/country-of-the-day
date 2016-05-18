@@ -1,59 +1,60 @@
-* {
+#countryDayWidget {
    box-sizing: border-box;
    padding: 0px;
    margin: 0px;
 }
 
-main {
+#countryDayWidget main {
    background-color: #f0f0f0;
    padding: 20px;
 }
 
-article {
+#countryDayWidget article {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
 }
 
-aside {
+#countryDayWidget aside {
    flex-grow: 0;
 }
 
-aside:nth-of-type(2) {
+#countryDayWidget aside:nth-of-type(2) {
    margin-left: 20px;
 }
 
-aside:nth-of-type(2) p {
+#countryDayWidget aside:nth-of-type(2) p {
    text-decoration: underline;
    cursor: pointer;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-   font-family: Helvetica, "Century Gothic", sans-serif;
-   font-weight: 100;
-   margin-bottom: 10px;
    color: steelblue;
 }
 
-h1 {
+#countryDayWidget h1,
+#countryDayWidget h2,
+#countryDayWidget h3,
+#countryDayWidget h4,
+#countryDayWidget h5,
+#countryDayWidget h6,
+#countryDayWidget p {
+   font-family: Helvetica, "Century Gothic", sans-serif;
+   font-weight: 100;
+   margin-bottom: 10px;
+   color: #1f1f1f;
+}
+
+#countryDayWidget h1 {
    font-size: 36px;
 }
 
-p {
+#countryDayWidget p {
    font-size: 19px;
 }
 
-[alt*='Flag'] {
+#countryDayWidget [alt*='Flag'] {
    width: 350px;
    margin-bottom: 10px;
 }
 
-a {
+#countryDayWidget a {
    color: steelblue;
 }
