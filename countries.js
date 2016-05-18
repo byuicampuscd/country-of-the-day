@@ -208,7 +208,7 @@
    };
 
    function generateCountryName(countryContainer, number) {
-         var country = document.createElement("h2"),
+      var country = document.createElement("h2"),
          countryText = document.createTextNode(countries[number][0]);
 
       country.appendChild(countryText);
@@ -216,17 +216,17 @@
    }
 
    function generateFlag(countryContainer, number) {
-         var flagImg = document.createElement("img");
-            flagImg.src = "https://www.cia.gov/library/publications/the-world-factbook/graphics/flags/large/" + countries[number][1].toLowerCase() + "-lgflag.gif";
-            flagImg.alt = countries[number][0] + " Flag";
+      var flagImg = document.createElement("img");
+      flagImg.src = "https://www.cia.gov/library/publications/the-world-factbook/graphics/flags/large/" + countries[number][1].toLowerCase() + "-lgflag.gif";
+      flagImg.alt = countries[number][0] + " Flag";
       countryContainer.appendChild(flagImg);
    }
 
    function picSrc(countryContainer) {
-         var picSrcPara = document.createElement("p"),
+      var picSrcPara = document.createElement("p"),
          picSrcLink = document.createElement("a"),
          picSrcText = document.createTextNode("Picture Source: "),
-            worldFact = document.createTextNode("World Fact Book");
+         worldFact = document.createTextNode("World Fact Book");
       picSrcLink.href = "https://www.cia.gov/library/publications/the-world-factbook/";
       picSrcLink.appendChild(worldFact);
       picSrcPara.appendChild(picSrcText);
@@ -234,28 +234,52 @@
       countryContainer.appendChild(picSrcPara);
    }
 
-   function makeCountryDisplay(countries, func) {
-      var number = func(),
-         countryContainer = document.createElement("aside"),
-         wolframAlphaPara = document.createElement("p"),
+   function wolfram(countryContainer, number) {
+      var wolframAlphaPara = document.createElement("p"),
          wolframAlphaLink = document.createElement("a"),
-         wolframAlphaText = document.createTextNode("WolframAlpha"),
-         ciaPara = document.createElement("p"),
-         ciaLink = document.createElement("a"),
-         ciaText = document.createTextNode("CIA.gov"),
-         newCountry = document.createElement("p"),
-         newCountryText = document.createTextNode("Get a New Country");
+         wolframAlphaText = document.createTextNode("WolframAlpha");
 
-      newCountry.appendChild(newCountryText);
+      wolframAlphaLink.href = "http://www.wolframalpha.com/input/?i=usa+vs.+" + countries[number][0];
+
+      wolframAlphaLink.appendChild(wolframAlphaText);
+      wolframAlphaPara.appendChild(wolframAlphaLink);
+
+      countryContainer.appendChild(wolframAlphaPara);
+   }
+
+   function cia(countryContainer, number) {
+      var ciaPara = document.createElement("p"),
+         ciaLink = document.createElement("a"),
+         ciaText = document.createTextNode("CIA.gov");
 
       ciaLink.href = 'https://www.cia.gov/library/publications/the-world-factbook/geos/' + countries[number][1].toLowerCase() + '.html';
 
-      wolframAlphaLink.href = "http://www.wolframalpha.com/input/?i=usa+vs.+" + countries[number][0];
+      ciaLink.appendChild(ciaText);
+      ciaPara.appendChild(ciaLink);
+
+      countryContainer.appendChild(ciaPara);
+   }
+
+   function newCountry(countryContainer) {
+      var newCountryPara = document.createElement("p"),
+         newCountryText = document.createTextNode("Get a New Country");
+
+      newCountryPara.appendChild(newCountryText);
+
+      countryContainer.appendChild(newCountryPara);
+   }
+
+   function makeCountryDisplay(countries, func) {
+      var number = func(),
+         countryContainer = document.createElement("aside");
 
       makeTitle(countryContainer);
       generateCountryName(countryContainer, number);
       generateFlag(countryContainer, number);
       picSrc(countryContainer);
+      wolfram(countryContainer, number);
+      cia(countryContainer, number);
+      newCountry(countryContainer);
 
       return countryContainer;
    }
