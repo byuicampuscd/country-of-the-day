@@ -306,9 +306,14 @@
 
    function start (func) {
       var number = func(),
-         countryContainer = document.createElement("main");
-      makeCountryDisplay(countryContainer, number);
+         countryContainer = document.createElement("main"),
+          linkStyle = document.createElement("link");
+      linkStyle.href = "countries.css";
+      linkStyle.type = "text/css";
+      linkStyle.rel = "stylesheet";
+      countryContainer.appendChild(linkStyle);
 
+      makeCountryDisplay(countryContainer, number);
       return countryContainer;
    }
 
