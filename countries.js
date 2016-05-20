@@ -198,7 +198,17 @@
       ["Republic of Zimbabwe", "ZI"],
       ["Taiwan ", "TW"],
       ["Republic of Zimbabwe", "ZI"]
-   ];
+   ],
+       countryContainer = document.querySelector("#countryDayWidget");
+
+   function putStyleLink(countryContainer) {
+      var linkStyle = document.createElement("link");
+
+      linkStyle.href = "https://content.byui.edu/integ/gen/316e5ad6-51c9-483a-8ca5-dc1e077671fe/0/countries.css";
+      linkStyle.type = "text/css";
+      linkStyle.rel = "stylesheet";
+      countryContainer.appendChild(linkStyle);
+   }
 
    function getCountryIndex() {
       return Math.floor(Math.random() * countries.length);
@@ -261,9 +271,10 @@
    }
 
    function newCountry(container2, countryContainer) {
-      var newCountryPara = document.createElement("p"),
+      var newCountryPara = document.createElement("button"),
          newCountryText = document.createTextNode("Get a New Country");
 
+      newCountryPara.id = "newCountryPara";
       newCountryPara.appendChild(newCountryText);
 
       container2.appendChild(newCountryPara);
@@ -275,26 +286,21 @@
    }
 
    function makeCountryDisplay(countryContainer, number) {
-      var articleContain = document.createElement("article"),
+      var sectionContain = document.createElement("section"),
           container1 = document.createElement("aside"),
-          container2 = document.createElement("aside"),
-          linkStyle = document.createElement("link");
+          container2 = document.createElement("aside");
 
-      linkStyle.href = "https://content.byui.edu/integ/gen/316e5ad6-51c9-483a-8ca5-dc1e077671fe/0/countries.css";
-      linkStyle.type = "text/css";
-      linkStyle.rel = "stylesheet";
-      countryContainer.appendChild(linkStyle);
-
+      putStyleLink(countryContainer);
       generateCountryName(countryContainer, number);
       generateFlag(container1, number);
       picSrc(container1);
+      newCountry(container2, countryContainer);
       wolfram(container2, number);
       cia(container2, number);
-      newCountry(container2, countryContainer);
 
-      articleContain.appendChild(container1);
-      articleContain.appendChild(container2);
-      countryContainer.appendChild(articleContain);
+      sectionContain.appendChild(container1);
+      sectionContain.appendChild(container2);
+      countryContainer.appendChild(sectionContain);
    }
 
    function start (func) {
@@ -305,6 +311,6 @@
       return countryContainer;
    }
 
-   document.querySelector("#countryDayWidget").appendChild(start(getCountryIndex));
+   countryContainer.appendChild(start(getCountryIndex));
 
 }());

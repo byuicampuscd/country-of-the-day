@@ -4,12 +4,11 @@
    margin: 0px;
 }
 
-#countryDayWidget main {
-   background-color: #f0f0f0;
-   padding: 20px;
+#countryDayWidget {
+   padding: 5px;
 }
 
-#countryDayWidget article {
+#countryDayWidget section {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
@@ -23,12 +22,6 @@
    margin-left: 20px;
 }
 
-#countryDayWidget aside:nth-of-type(2) p {
-   text-decoration: underline;
-   cursor: pointer;
-   color: steelblue;
-}
-
 #countryDayWidget h1,
 #countryDayWidget h2,
 #countryDayWidget h3,
@@ -36,25 +29,44 @@
 #countryDayWidget h5,
 #countryDayWidget h6,
 #countryDayWidget p {
-   font-family: Helvetica, "Century Gothic", sans-serif;
+   font-family: Helvetica, Arial, sans-serif;
    font-weight: 100;
    margin-bottom: 10px;
    color: #1f1f1f;
 }
 
 #countryDayWidget h1 {
-   font-size: 36px;
+   margin-top: -5px;
+   font-size: 25px;
 }
 
 #countryDayWidget p {
-   font-size: 19px;
+   font-size: 14px;
 }
 
 #countryDayWidget [alt*='Flag'] {
-   width: 350px;
+   width: 100%;
    margin-bottom: 10px;
 }
 
 #countryDayWidget a {
    color: steelblue;
+}
+
+#countryDayWidget button {
+   padding: 4px;
+   border-radius: 2.5px;
+   background: #0076C6;
+   color: #FFF;
+   border: 1px solid #0066ab;
+   cursor: pointer;
+}
+
+#countryDayWidget button:hover {
+   background: #0081d9;
+}
+
+#countryDayWidget button:active {
+   border: 1px solid #0076C6;
+   background: #006bb3;
 }
