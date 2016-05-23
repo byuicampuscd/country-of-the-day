@@ -294,9 +294,9 @@
       generateCountryName(countryContainer, number);
       generateFlag(container1, number);
       picSrc(container1);
-      newCountry(container2, countryContainer);
       wolfram(container2, number);
       cia(container2, number);
+      newCountry(container2, countryContainer);
 
       sectionContain.appendChild(container1);
       sectionContain.appendChild(container2);

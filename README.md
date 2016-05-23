@@ -6,3 +6,6 @@ Just grab the JavaScript file and attach it to a script tag in the HTML.  The us
     <script src="https://content.byui.edu/integ/gen/316e5ad6-51c9-483a-8ca5-dc1e077671fe/0/countries.js"></script>
 
 This will generate a page with the country of the day flag and its style all dynamically made by the JavaScript file.
+
+[Here is the file location in Equella.]
+(https://content.byui.edu/items/316e5ad6-51c9-483a-8ca5-dc1e077671fe/30/)

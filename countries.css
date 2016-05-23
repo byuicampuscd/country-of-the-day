@@ -1,33 +1,12 @@
 #countryDayWidget {
    box-sizing: border-box;
-   padding: 0px;
-   margin: 0px;
-}
-
-#countryDayWidget {
    padding: 5px;
-}
-
-#countryDayWidget section {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-}
-
-#countryDayWidget aside {
-   flex-grow: 0;
-}
-
-#countryDayWidget aside:nth-of-type(2) {
-   margin-left: 20px;
+   margin: 0px;
+   overflow-x: hidden;
 }
 
 #countryDayWidget h1,
 #countryDayWidget h2,
-#countryDayWidget h3,
-#countryDayWidget h4,
-#countryDayWidget h5,
-#countryDayWidget h6,
 #countryDayWidget p {
    font-family: Helvetica, Arial, sans-serif;
    font-weight: 100;
@@ -40,13 +19,19 @@
    font-size: 25px;
 }
 
-#countryDayWidget p {
+#countryDayWidget aside:nth-of-type(1) p {
+   margin-top: -5px;
+   font-size: 9px;
+}
+
+#countryDayWidget aside p {
    font-size: 14px;
 }
 
 #countryDayWidget [alt*='Flag'] {
    width: 100%;
    margin-bottom: 10px;
+   margin-right: 20px;
 }
 
 #countryDayWidget a {
