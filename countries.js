@@ -245,12 +245,14 @@
    function wolfram(container2, number) {
       var wolframAlphaPara = document.createElement("p"),
          wolframAlphaLink = document.createElement("a"),
-         wolframAlphaText = document.createTextNode("WolframAlpha");
+         wolframAlphaText = document.createTextNode("WolframAlpha"),
+         moreText = document.createTextNode("More info at: ");
 
       wolframAlphaLink.href = "http://www.wolframalpha.com/input/?i=usa+vs.+" + countries[number][0];
       wolframAlphaLink.target = "_blank";
 
       wolframAlphaLink.appendChild(wolframAlphaText);
+      wolframAlphaPara.appendChild(moreText);
       wolframAlphaPara.appendChild(wolframAlphaLink);
 
       container2.appendChild(wolframAlphaPara);
@@ -259,12 +261,14 @@
    function cia(container2, number) {
       var ciaPara = document.createElement("p"),
          ciaLink = document.createElement("a"),
-         ciaText = document.createTextNode("CIA.gov");
+         ciaText = document.createTextNode("CIA.gov"),
+         moreText = document.createTextNode("More info at: ");
 
       ciaLink.href = 'https://www.cia.gov/library/publications/the-world-factbook/geos/' + countries[number][1].toLowerCase() + '.html';
       ciaLink.target = "_blank";
 
       ciaLink.appendChild(ciaText);
+      ciaPara.appendChild(moreText);
       ciaPara.appendChild(ciaLink);
 
       container2.appendChild(ciaPara);
