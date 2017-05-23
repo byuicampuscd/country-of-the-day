@@ -1,0 +1,13 @@
+{
+  "name": "country-of-the-day",
+  "version": "1.0.0",
+  "description": "Country of the day.",
+  "main": "",
+  "scripts": {
+    "test": "NA"
+  },
+  "devDependencies": {
+  },
+  "author": "Eric Julander",
+  "license": "UNLICENSED"
+}
