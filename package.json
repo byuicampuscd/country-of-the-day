@@ -1,13 +1,11 @@
 {
   "name": "country-of-the-day",
   "version": "1.0.0",
-  "description": "Country of the day.",
-  "main": "",
+  "description": "I-Learn 3.0 Widget to display Country of the Day.",
+  "main": "countries.js",
   "scripts": {
     "test": "NA"
   },
-  "devDependencies": {
-  },
-  "author": "Eric Julander",
-  "license": "UNLICENSED"
+  "author": "Andrew Gremlich",
+  "license": "MIT"
 }
