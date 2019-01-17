@@ -1,5 +1,9 @@
 # Country of the Day - I-Learn 3.0 Widget
 
+## Description
+This widget will add a flag to the webpage so you can see the country fo the day
+
+## How to use
 Just grab the JavaScript file and attach it to a script tag in the HTML.  The used file will be sourced from Equella, the CMS of BYU-Idaho.  So that the content appears, make a div tag with the id attribute as "countryDayWidget" like the following example.    
 
     <div id="countryDayWidget"></div>
